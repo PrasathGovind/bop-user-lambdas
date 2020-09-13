@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: User Registration Lambda for Bank of Prazy
+Resources:
+  TimeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.bop.UserRegistrationLambda::handleRequest
+      Runtime: java8
+      CodeUri: target/bop-user-lambdas-0.0.1-SNAPSHOT.jar
+      Events:
+        UserRegistrationAPI:
+          Type: Api
+          Properties:
+            Path: /user/registration
+            Method: POST

@@ -1,0 +1,21 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+        java: corretto8
+  pre_build:
+    commands:
+      - echo In the pre_build phase...
+  build:
+    commands:
+      - clean package shade:shade
+      - export BUCKET=bank-of-prazy-serverless-ci-cd-artifacts
+      - aws cloudformation package --template-file template.yml --s3-bucket $BUCKET --output-template-file outputtemplate.yml
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  type: zip
+  files:
+    - template.yml
+    - outputtemplate.yml
