@@ -38,10 +38,16 @@ public class UserRegistrationService {
 		userDTO.setMobileNumber(user.getMobileNumber());
 		
 		userDAO.registerUser(userDTO);
+				
+		try {
+			emailUtils.sendEmail(user.getEmailId());
+			emailUtils.postEmailtoSQS(user.getEmailId());
+		}
+		catch (Exception ex){
+			logger.log("Exception thrown while sending User Registration Email! ex="+ex.getMessage());
+		}
 		
 		logger.log("Exit UserRegistrationService.");
-		
-		emailUtils.sendEmail(user.getEmailId());
 		
 		return context;
 		
