@@ -38,6 +38,7 @@ public class UserDAO {
 		
 	}
 	
+	/*
 	public Item getUser(String mobileNumber){
 		
 		Table table = dynamoDB.getTable("user");
@@ -46,6 +47,7 @@ public class UserDAO {
 		
 		return item;
 	}
+	*/
 	
 
 }
