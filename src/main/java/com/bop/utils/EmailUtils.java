@@ -75,7 +75,7 @@ public class EmailUtils {
  	
  	private String standardQueueUrl = "https://sqs.us-east-2.amazonaws.com/635569081895/DEV-BoP-user-registration-sqs";
      
-     public void postEmailtoSQS() throws Exception {
+     public void postEmailtoSQS() {
     	 
     	 AmazonSQS sqs = AmazonSQSClientBuilder.standard()
     			  .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(aKey, sKey)))
