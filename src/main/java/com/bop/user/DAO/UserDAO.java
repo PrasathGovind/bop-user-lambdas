@@ -17,7 +17,7 @@ public class UserDAO {
 	private DynamoDBMapper dynamoDBMapper;
 	
 	
-	private DynamoDB dynamoDB;
+	//private DynamoDB dynamoDB;
 
 	
 	public UserDAO() {
@@ -26,7 +26,7 @@ public class UserDAO {
 		
 		dynamoDBMapper = dynamoDBConfig.getDynamoDBMapper();
 		
-		dynamoDB = dynamoDBConfig.getDynamoDB();
+		//dynamoDB = dynamoDBConfig.getDynamoDB();
 		
 	}
 	

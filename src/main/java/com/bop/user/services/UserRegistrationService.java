@@ -41,7 +41,7 @@ public class UserRegistrationService {
 				
 		try {
 			emailUtils.sendEmail(user.getEmailId());
-			emailUtils.postEmailtoSQS(user.getEmailId());
+			emailUtils.postEmailtoSQS();
 		}
 		catch (Exception ex){
 			logger.log("Exception thrown while sending User Registration Email! ex="+ex.getMessage());
