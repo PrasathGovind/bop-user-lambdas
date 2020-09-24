@@ -5,8 +5,6 @@ import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.bop.user.DAO.UserDAO;
 import com.bop.user.beans.User;
 import com.bop.user.beans.UserDTO;
-import com.bop.user.exceptions.APIException;
-import com.bop.user.exceptions.ErrorConstants;
 import com.bop.utils.EmailUtils;
 
 public class UserRegistrationService {
@@ -22,11 +20,12 @@ public class UserRegistrationService {
 		logger.log("Inside UserRegistrationService ...");
 		
 		if(user==null) {
-			throw new APIException(ErrorConstants.REQUEST_JSON_VALIDATION_FAILURE, "The request Json is Empty!");
+			throw new RuntimeException("[BankOfPrazyException] The request Json is Empty!");
+			//throw new APIException(ErrorConstants.REQUEST_JSON_VALIDATION_FAILURE, "The request Json is Empty!");
 		}
 		
 		if(user!=null && (user.getMobileNumber()==null || user.getMobileNumber().isEmpty() || user.getEmailId().isEmpty() || user.getEmailId()==null)) {
-			throw new APIException(ErrorConstants.USER_REGISTRATION_REJECTED,"Mobile Number are Email Id are mandatory!");
+			throw new RuntimeException("[BankOfPrazyException] Mobile Number and Email Id are mandatory! One or more of the fields is missing.");
 		}
 		
 		UserDTO userDTO = new UserDTO();
