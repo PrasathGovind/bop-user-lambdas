@@ -1,7 +1,5 @@
 package com.bop.utils;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -18,44 +16,58 @@ public class StringUtilsTest {
 
 	}
 	
-	public static String getDynamoDBsKey() {
+	@Test
+	public void getDynamoDBsKey() {
 		
-		String token1 = "tnYzdslw76n98";
-		String token2 = "Z6m1FEaD7En8d2";
-		String token3 = "Eyl6z26nNCoRb";
-		return token3+token2+token1;
+		String expectedKey = "Eyl6z26nNCoRb" + "Z6m1FEaD7En8d2" + "tnYzdslw76n98";
+		String actualKey = StringUtils.getDynamoDBsKey();
+		
+		Assert.assertEquals(expectedKey, actualKey);
 	}
 	
-	public static String getSESaKey() {
+	@Test
+	public void getSESaKey() {
 		
-		String token1 = "YT4NSKN3E6";
-		String token2 = "AKIAZH6W6R";
+		String expectedKey = "AKIAZH6W6R" + "YT4NSKN3E6";
+		String actualKey = StringUtils.getSESaKey();
 		
-		return token2+token1;
+		Assert.assertEquals(expectedKey, actualKey);
 	}
 	
-	public static String getSESsKey() {
+	@Test
+	public void getSESsKey() {
 		
-		String token1 = "/pKUEV4RknyWUpb";
-		String token2 = "PUipBYXGdoRksG";
-		String token3 = "BFDX05JvfR87h5s";
+		String expectedKey = "BFDX05JvfR87h5s" + "/pKUEV4RknyWUpb" + "PUipBYXGdoRksG" ;
+		String actualKey = StringUtils.getSESsKey();
 		
-		return token3+token1+token2;		
+		Assert.assertEquals(expectedKey, actualKey);		
 	}
 	
-	public static String getDynamoDBEndpoint() {
+	@Test
+	public void  getDynamoDBEndpoint() {
 		
-		return "dynamodb.us-east-2.amazonaws.com";
+		String expectedKey = "dynamodb.us-east-2.amazonaws.com";
+		String actualKey = StringUtils.getDynamoDBEndpoint();
+		
+		Assert.assertEquals(expectedKey, actualKey);
 	}
 	
-	public static String getDynamoDBRegion() {
+	@Test
+	public void getDynamoDBRegion() {
 		
-		return "us-east-2";		
+		String expectedKey = "us-east-2";
+		String actualKey = StringUtils.getDynamoDBRegion();
+		
+		Assert.assertEquals(expectedKey, actualKey);	
 	}
 	
-	public static String getSESEndpoint() {
+	@Test
+	public void getSESEndpoint() {
 		
-		return "email-smtp.us-east-2.amazonaws.com";
+		String expectedKey = "email-smtp.us-east-2.amazonaws.com";
+		String actualKey = StringUtils.getSESEndpoint();
+		
+		Assert.assertEquals(expectedKey, actualKey);
 	}
 
 }
