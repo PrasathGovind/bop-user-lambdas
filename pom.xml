@@ -15,7 +15,7 @@
 		<sonar.junit.reportsPath>${project.basedir}\target\surefire-reports</sonar.junit.reportsPath>
 		<sonar.tests>${project.basedir}\target\test-classes</sonar.tests>
 		<sonar.binaries>${project.basedir}\target\classes</sonar.binaries>
-        <!-- <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}\target\coverage-reports\jacoco-unit.exec</sonar.coverage.jacoco.xmlReportPaths>-->
+        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}\target\site\jacoco\jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
 	
 	<dependencies>
@@ -95,24 +95,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
-            </plugin> 
-            
-            <!-- <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.2.201409121644</version>               
-                <executions>
-                    <execution>
-                        <id>default-prepare-agent</id>
-                        <goals><goal>prepare-agent</goal></goals>
-                    </execution>
-                    <execution>
-                        <id>default-report</id>
-                        <phase>prepare-package</phase>
-                        <goals><goal>report</goal></goals>
-                    </execution>
-                </executions>
-            </plugin>-->
+            </plugin>
             
             <plugin>
 				<groupId>org.jacoco</groupId>
@@ -124,9 +107,6 @@
 					<dataFile>${sonar.jacoco.reportPath}</dataFile>
 					<output>file</output>
 					<append>true</append>
-					<!-- <excludes>
-						<exclude>*MethodAccess</exclude>
-					</excludes>-->
 				</configuration>
 				<executions>
 					<execution>
