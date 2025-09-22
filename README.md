@@ -1,2 +1,2 @@
 # bop-user-lambda
-Bank of Prazy - User Lambda
+Bank of PrasGov - User Lambda
